@@ -104,7 +104,7 @@ body {
 .drake-image-column {
   width: 100%;
   height: 100%;
-  background-image: url("/assets/drake_says_no.jpg");
+  background-image: url("../assets/drake_says_no.jpg");
   background-repeat: repeat-y;
   background-size: 100% auto;
 }
@@ -112,7 +112,7 @@ body {
 .drake-image-row {
   width: 100%;
   height: 100%;
-  background-image: url("/assets/drake_says_no_upwards.jpg");
+  background-image: url("../assets/drake_says_no_upwards.jpg");
   background-repeat: repeat-x;
   background-size: auto 100%;
 }
