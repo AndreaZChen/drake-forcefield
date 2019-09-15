@@ -1,0 +1,148 @@
+:root {
+  --animation-vertical-time: 6s;
+  --animation-horizontal-time: 7s;
+}
+
+#app-main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  margin: 0;
+}
+
+@keyframes bounce-horizontal {
+  0%,100% {
+    transform: translate3d(0%,0,0);
+  }
+  50% {
+    transform: translate3d(100%,0,0);
+  }
+}
+
+@keyframes bounce-vertical {
+  0%,100% {
+    transform: translate3d(0,0%,0);
+  }
+  50% {
+    transform: translate3d(0,100%,0);
+  }
+}
+
+@keyframes adjust-for-width {
+  0%,100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes adjust-for-height {
+  0%,100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100%);
+  }
+}
+
+#bouncing-bad-page-wrapper {
+  width: 80%;
+  height: 80%;
+  display: grid;
+  grid-template-rows: 10% 1fr 10%;
+  grid-template-columns: 10% 1fr 10%;
+  border: 2px solid yellow;
+}
+
+#bounce-area {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.bouncing-words-wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  animation: bounce-horizontal var(--animation-horizontal-time) infinite linear;
+}
+
+.bouncing-words-wrapper > div {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  animation: bounce-vertical var(--animation-vertical-time) infinite linear;
+}
+
+.bouncing-words-wrapper > div > div {
+  display: inline-block;
+  animation: adjust-for-width var(--animation-horizontal-time) infinite linear;
+}
+
+.bouncing-words-wrapper > div > div > span {
+  font-size: xx-large;
+  display: inline-block;
+  animation: adjust-for-height var(--animation-vertical-time) infinite linear;
+}
+
+.drake-image-column {
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/drake_says_no.jpg");
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+}
+
+.drake-image-row {
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/drake_says_no_upwards.jpg");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+}
+
+.bottom-row {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.top-row {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  transform: scaleY(-1);
+}
+
+.left-column {
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.right-column {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  transform: scaleX(-1);
+}
